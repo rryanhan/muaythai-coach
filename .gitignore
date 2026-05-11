@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Local media and analysis outputs
+data/videos/**
+data/uploads/*
+data/outputs/*
+data/tmp/*
+!data/videos/
+!data/videos/.gitkeep
+!data/videos/*/
+!data/videos/**/manifest.json
+!data/outputs/.gitkeep
+!data/tmp/.gitkeep
+
+# Python packaging metadata
+*.egg-info/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

@@ -1,0 +1,361 @@
+{
+  "dataset": "first_fine_tuning",
+  "stance": "orthodox",
+  "notes": [
+    "First local dataset for building calibration, quality/orientation gates, and early shadowboxing rules.",
+    "Calibration clips should be processed before strike, movement, angle, and freestyle clips.",
+    "Expected reps are approximate because these clips are for rule tuning, not formal scoring."
+  ],
+  "clips": [
+    {
+      "filename": "calibration_good_full_body_orthodox.MOV",
+      "category": "calibration",
+      "primary_action": "full_body_visibility",
+      "expected_reps": null,
+      "expected_issues": [],
+      "use_for": [
+        "full_body_visibility_baseline",
+        "landmark_confidence_baseline",
+        "body_framing_check",
+        "stance_center_baseline"
+      ],
+      "notes": "Use this to learn what good full-body framing looks like for this camera setup."
+    },
+    {
+      "filename": "calibration_lead_reach_jab_orthodox.MOV",
+      "category": "calibration",
+      "primary_action": "lead_reach",
+      "expected_reps": 5,
+      "expected_issues": [],
+      "use_for": [
+        "lead_reach_baseline",
+        "jab_extension_threshold",
+        "lead_hand_visibility"
+      ],
+      "notes": "Slow lead-hand reach and return for personalizing jab extension."
+    },
+    {
+      "filename": "calibration_rear_reach_cross_orthodox.MOV",
+      "category": "calibration",
+      "primary_action": "rear_reach",
+      "expected_reps": 5,
+      "expected_issues": [],
+      "use_for": [
+        "rear_reach_baseline",
+        "cross_extension_threshold",
+        "rear_hand_visibility"
+      ],
+      "notes": "Slow rear-hand reach and return for personalizing cross extension."
+    },
+    {
+      "filename": "calibration_movement_baseline_orthodox.MOV",
+      "category": "calibration",
+      "primary_action": "movement_baseline",
+      "expected_reps": null,
+      "expected_issues": [],
+      "use_for": [
+        "normal_sway_baseline",
+        "stance_width_baseline",
+        "movement_noise_threshold"
+      ],
+      "notes": "Light stance movement without clear steps; helps separate normal sway from footwork."
+    },
+    {
+      "filename": "strike_clean_jab_orthodox.MOV",
+      "category": "clean_strike",
+      "primary_action": "jab",
+      "expected_reps": 10,
+      "expected_issues": [],
+      "use_for": [
+        "jab_detection",
+        "jab_return_to_guard",
+        "false_positive_check"
+      ],
+      "notes": "Clean jab reference clip."
+    },
+    {
+      "filename": "strike_clean_cross_orthodox(i lowk telegraph it).MOV",
+      "category": "clean_strike",
+      "primary_action": "cross",
+      "expected_reps": 10,
+      "expected_issues": [
+        "possible_telegraph"
+      ],
+      "use_for": [
+        "cross_detection",
+        "cross_extension",
+        "telegraph_review"
+      ],
+      "notes": "Filename notes possible telegraph, so treat this as mostly clean but review manually."
+    },
+    {
+      "filename": "strike_clean_jab_cross_orthodox.MOV",
+      "category": "clean_combo",
+      "primary_action": "jab_cross",
+      "expected_reps": 10,
+      "expected_issues": [],
+      "use_for": [
+        "combo_segmentation",
+        "jab_to_cross_transition",
+        "guard_recovery_between_strikes"
+      ],
+      "notes": "Clean 1-2 combo reference clip."
+    },
+    {
+      "filename": "strike_clean_lead_hook_orthodox.MOV",
+      "category": "clean_strike",
+      "primary_action": "lead_hook",
+      "expected_reps": 8,
+      "expected_issues": [],
+      "use_for": [
+        "future_hook_detection",
+        "strike_classification_contrast"
+      ],
+      "notes": "Future hook classifier reference; useful now as a non-jab/non-cross contrast clip."
+    },
+    {
+      "filename": "strike_clean_rear_hook_orthodox.MOV",
+      "category": "clean_strike",
+      "primary_action": "rear_hook",
+      "expected_reps": 8,
+      "expected_issues": [],
+      "use_for": [
+        "future_hook_detection",
+        "strike_classification_contrast"
+      ],
+      "notes": "Future rear hook classifier reference."
+    },
+    {
+      "filename": "strike_clean_lead_uppercut_orthodox.MOV",
+      "category": "clean_strike",
+      "primary_action": "lead_uppercut",
+      "expected_reps": 8,
+      "expected_issues": [],
+      "use_for": [
+        "future_uppercut_detection",
+        "strike_classification_contrast"
+      ],
+      "notes": "Future uppercut classifier reference."
+    },
+    {
+      "filename": "strike_clean_rear_uppercut_orthodox.MOV",
+      "category": "clean_strike",
+      "primary_action": "rear_uppercut",
+      "expected_reps": 8,
+      "expected_issues": [],
+      "use_for": [
+        "future_uppercut_detection",
+        "strike_classification_contrast"
+      ],
+      "notes": "Future rear uppercut classifier reference."
+    },
+    {
+      "filename": "mistake_jab_hand_dip_telegraph_orthodox.MOV",
+      "category": "mistake",
+      "primary_action": "jab",
+      "expected_reps": 8,
+      "expected_issues": [
+        "hand_dip_telegraph"
+      ],
+      "use_for": [
+        "jab_detection",
+        "hand_dip_telegraph_threshold"
+      ],
+      "notes": "Intentional lead-hand dip before the jab."
+    },
+    {
+      "filename": "mistake_jab_rear_hand_drop_orthodox.MOV",
+      "category": "mistake",
+      "primary_action": "jab",
+      "expected_reps": 8,
+      "expected_issues": [
+        "rear_hand_drop"
+      ],
+      "use_for": [
+        "jab_detection",
+        "rear_hand_guard_threshold"
+      ],
+      "notes": "Intentional rear-hand drop during jab."
+    },
+    {
+      "filename": "mistake_cross_short_extension_orthodox.MOV",
+      "category": "mistake",
+      "primary_action": "cross",
+      "expected_reps": 8,
+      "expected_issues": [
+        "short_cross"
+      ],
+      "use_for": [
+        "cross_detection",
+        "cross_extension_threshold",
+        "short_extension_detection"
+      ],
+      "notes": "Intentional cross under-extension."
+    },
+    {
+      "filename": "mistake_feet_crossing_orthodox.MOV",
+      "category": "mistake",
+      "primary_action": "footwork",
+      "expected_reps": null,
+      "expected_issues": [
+        "feet_crossing"
+      ],
+      "use_for": [
+        "footwork_detection",
+        "feet_crossing_detection",
+        "stance_width_threshold"
+      ],
+      "notes": "Intentional lateral foot crossing."
+    },
+    {
+      "filename": "movement_step_left_orthodox.MOV",
+      "category": "movement",
+      "primary_action": "step_left",
+      "expected_reps": 6,
+      "expected_issues": [],
+      "use_for": [
+        "movement_direction_detection",
+        "left_step_threshold"
+      ],
+      "notes": "Repeated left steps from stance."
+    },
+    {
+      "filename": "movement_step_right_orthodox.MOV",
+      "category": "movement",
+      "primary_action": "step_right",
+      "expected_reps": 6,
+      "expected_issues": [],
+      "use_for": [
+        "movement_direction_detection",
+        "right_step_threshold"
+      ],
+      "notes": "Repeated right steps from stance."
+    },
+    {
+      "filename": "angle_jab_front_facing_orthodox.MOV",
+      "category": "angle",
+      "primary_action": "jab",
+      "expected_reps": 8,
+      "expected_issues": [],
+      "use_for": [
+        "orientation_estimation",
+        "front_facing_jab_detection",
+        "angle_confidence_gate"
+      ],
+      "notes": "Jabs from a mostly front-facing view."
+    },
+    {
+      "filename": "angle_jab_side_on_orthodox.MOV",
+      "category": "angle",
+      "primary_action": "jab",
+      "expected_reps": 8,
+      "expected_issues": [
+        "possible_occlusion"
+      ],
+      "use_for": [
+        "orientation_estimation",
+        "side_on_jab_detection",
+        "angle_confidence_gate"
+      ],
+      "notes": "Jabs from a more side-on view; useful for deciding when confidence should drop."
+    },
+    {
+      "filename": "angle_jab_away_from_camera_orthodox.MOV",
+      "category": "angle",
+      "primary_action": "jab",
+      "expected_reps": 8,
+      "expected_issues": [
+        "possible_depth_ambiguity"
+      ],
+      "use_for": [
+        "orientation_estimation",
+        "depth_ambiguity_detection",
+        "angle_confidence_gate"
+      ],
+      "notes": "Jabs traveling away from the camera; useful for suppressing overconfident extension claims."
+    },
+    {
+      "filename": "angle_cross_front_facing_orthodox.MOV",
+      "category": "angle",
+      "primary_action": "cross",
+      "expected_reps": 8,
+      "expected_issues": [],
+      "use_for": [
+        "orientation_estimation",
+        "front_facing_cross_detection",
+        "angle_confidence_gate"
+      ],
+      "notes": "Crosses from a mostly front-facing view."
+    },
+    {
+      "filename": "angle_cross_side_on_orthodox.MOV",
+      "category": "angle",
+      "primary_action": "cross",
+      "expected_reps": 8,
+      "expected_issues": [
+        "possible_occlusion"
+      ],
+      "use_for": [
+        "orientation_estimation",
+        "side_on_cross_detection",
+        "angle_confidence_gate"
+      ],
+      "notes": "Crosses from a more side-on view."
+    },
+    {
+      "filename": "angle_cross_away_from_camera_orthodox.MOV",
+      "category": "angle",
+      "primary_action": "cross",
+      "expected_reps": 8,
+      "expected_issues": [
+        "possible_depth_ambiguity"
+      ],
+      "use_for": [
+        "orientation_estimation",
+        "depth_ambiguity_detection",
+        "angle_confidence_gate"
+      ],
+      "notes": "Crosses traveling away from the camera; likely lower-confidence extension measurement."
+    },
+    {
+      "filename": "angle_pivot_clockwise_then_return_orthodox.MOV",
+      "category": "angle",
+      "primary_action": "pivot_clockwise",
+      "expected_reps": 6,
+      "expected_issues": [],
+      "use_for": [
+        "orientation_change_detection",
+        "pivot_detection",
+        "return_to_readable_angle_detection"
+      ],
+      "notes": "Repeated clockwise pivots and returns to original stance."
+    },
+    {
+      "filename": "angle_pivot_counter_clockwise_then_return_orthodox.MOV",
+      "category": "angle",
+      "primary_action": "pivot_counter_clockwise",
+      "expected_reps": 6,
+      "expected_issues": [],
+      "use_for": [
+        "orientation_change_detection",
+        "pivot_detection",
+        "return_to_readable_angle_detection"
+      ],
+      "notes": "Repeated counter-clockwise pivots and returns to original stance."
+    },
+    {
+      "filename": "freestyle_light_60s_orthodox.MOV",
+      "category": "freestyle",
+      "primary_action": "light_shadowboxing",
+      "expected_reps": null,
+      "expected_issues": [],
+      "use_for": [
+        "end_to_end_shadowboxing_validation",
+        "strike_distribution_validation",
+        "movement_distribution_validation",
+        "confidence_gate_validation"
+      ],
+      "notes": "Light 60-second freestyle round for testing whether calibration and rules survive natural movement."
+    }
+  ]
+}

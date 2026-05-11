@@ -1,0 +1,12 @@
+{
+  "name": "muay-thai-ai-form-coach",
+  "private": true,
+  "scripts": {
+    "dev:web": "pnpm --filter @mt-coach/web dev",
+    "build:web": "pnpm --filter @mt-coach/web build",
+    "lint:web": "pnpm --filter @mt-coach/web lint",
+    "typecheck:web": "pnpm --filter @mt-coach/web typecheck"
+  },
+  "packageManager": "pnpm@9.15.0"
+}
+

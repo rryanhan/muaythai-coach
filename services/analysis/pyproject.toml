@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=75.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mt-coach-analysis"
+version = "0.1.0"
+description = "Video analysis service for Muay Thai AI Form Coach"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.34.0",
+  "pydantic>=2.10.0",
+  "python-multipart>=0.0.20",
+  "numpy>=2.1.0",
+  "opencv-python>=4.10.0",
+  "mediapipe>=0.10.18"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.0",
+  "ruff>=0.8.0",
+  "mypy>=1.14.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*", "analysis*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
+

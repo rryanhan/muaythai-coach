@@ -1,0 +1,4 @@
+{
+  "editor.formatOnSave": true,
+  "python.defaultInterpreterPath": "services/analysis/.venv/bin/python"
+}
